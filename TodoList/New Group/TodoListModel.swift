@@ -11,7 +11,7 @@ import Foundation
 class TodoListViewModel {
     
     // MARK: Stored properties
-    // The list of to-do items
+    // The view model
     var todos: [TodoItem]
     
     // MARK: Initializer(s)
