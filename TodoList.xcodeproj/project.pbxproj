@@ -61,7 +61,7 @@
 				815D9D8C2BC414270050957E /* Helpers */,
 				815D9D8B2BC414160050957E /* Model */,
 				815D9D8A2BC413F70050957E /* Views */,
-				E1F86EB82BD49971003E3300 /* New Group */,
+				E1F86EB82BD49971003E3300 /* View Model */,
 				815D9D802BC413810050957E /* Assets.xcassets */,
 				815D9D822BC413810050957E /* Preview Content */,
 			);
@@ -100,12 +100,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		E1F86EB82BD49971003E3300 /* New Group */ = {
+		E1F86EB82BD49971003E3300 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				E1F86EB92BD499AB003E3300 /* TodoListModel.swift */,
 			);
-			path = "New Group";
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
