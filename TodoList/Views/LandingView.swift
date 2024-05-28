@@ -28,7 +28,7 @@ struct LandingView: View {
                 
                 List($viewModel.todos) { $todo in
                     
-                    ItemView(currentItem: $todo, viewModel: viewModel)
+                    ItemView(currentItem: $todo)
                         // Delete item
                         .swipeActions {
                             Button(
