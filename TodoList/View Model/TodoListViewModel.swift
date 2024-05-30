@@ -103,6 +103,7 @@ class TodoListViewModel {
             }
                     
         }
+    
     func update(todo updatedTodo: TodoItem) {
             
             // Create a unit of asynchronous work to add the to-do item
@@ -124,5 +125,36 @@ class TodoListViewModel {
             }
             
         }
+    
+    func filterTodos(on searchTerm: String) async throws {
+
+        if searchTerm.isEmpty {
+
+            // Get all the to-dos
+            Task {
+                try await getTodos()
+            }
+
+        } else {
+
+            // Get a filtered list of to-dos
+            do {
+                let results: [TodoItem] = try await supabase
+                    .from("todos")
+                    .select()
+                    .ilike("title", pattern: "%\(searchTerm)%")
+                    .order("id", ascending: true)
+                    .execute()
+                    .value
+
+                self.todos = results
+
+            } catch {
+                debugPrint(error)
+            }
+
+        }
+
+    }
     
 }
