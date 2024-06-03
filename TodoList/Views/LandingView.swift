@@ -20,6 +20,8 @@ struct LandingView: View {
     // The list of to-do items
     @State var viewModel = TodoListViewModel()
     
+    @State var presentingNewItemSheet = false
+    
     // MARK: Computed properties
     var body: some View {
         NavigationView {
@@ -63,6 +65,23 @@ struct LandingView: View {
                 
             }
             .navigationTitle("To do")
+            .sheet(isPresented: $presentingNewItemSheet) {
+                Text("Hello, world!")
+                    .presentationDetents([.medium, .fraction(0.15)])
+            }
+            // Add a tool bar to the top of the interface
+            // NOTE: For a toolbar to appear, it must be
+            //       inside a NavigationView or NavigationStack.
+            .toolbar {
+                // Add a button to trigger showing the sheet
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        presentingNewItemSheet = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
             
         }
         .environment(viewModel)
